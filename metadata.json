@@ -1,0 +1,7 @@
+{
+  "name": "Ludo Master",
+  "description": "A classic, feature-packed Ludo board game with Pass & Play, smart AI bots, customizable themes, realistic dice roll animations, statistics tracking, and interactive gameplay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
