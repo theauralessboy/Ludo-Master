@@ -1,0 +1,1 @@
+A modern, native Android Ludo game built with Jetpack Compose, featuring authentic 15×15 board mechanics, local multiplayer, adaptive AI bots, procedural sound synthesis, and local Room database tracking.
