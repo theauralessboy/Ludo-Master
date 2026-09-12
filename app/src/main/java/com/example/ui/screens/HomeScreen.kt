@@ -1,5 +1,6 @@
 package com.example.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -49,9 +50,11 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.R
 import com.example.model.GameMode
 import com.example.model.LudoColor
 import com.example.model.LudoTheme
@@ -78,21 +81,14 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(
+                        Image(
+                            painter = painterResource(id = R.drawable.img_ludo_logo),
+                            contentDescription = "Ludo Master Logo",
                             modifier = Modifier
-                                .size(28.dp)
-                                .clip(CircleShape)
-                                .background(Color(0xFFFFD54F)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Casino,
-                                contentDescription = null,
-                                tint = Color(0xFF1E88E5),
-                                modifier = Modifier.size(18.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(8.dp))
+                                .size(30.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
                         Text(
                             text = "Ludo Master",
                             fontWeight = FontWeight.Black,
@@ -171,22 +167,36 @@ fun HomeScreen(
                                 )
                             }
 
-                            // 4 Colors Badges
-                            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                listOf(
-                                    LudoColor.RED,
-                                    LudoColor.GREEN,
-                                    LudoColor.YELLOW,
-                                    LudoColor.BLUE
-                                ).forEach { color ->
-                                    Box(
-                                        modifier = Modifier
-                                            .size(14.dp)
-                                            .clip(CircleShape)
-                                            .background(color.primaryColor)
-                                            .border(1.dp, Color.White, CircleShape)
-                                    )
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                // 4 Colors Badges
+                                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                    listOf(
+                                        LudoColor.RED,
+                                        LudoColor.GREEN,
+                                        LudoColor.YELLOW,
+                                        LudoColor.BLUE
+                                    ).forEach { color ->
+                                        Box(
+                                            modifier = Modifier
+                                                .size(12.dp)
+                                                .clip(CircleShape)
+                                                .background(color.primaryColor)
+                                                .border(1.dp, Color.White, CircleShape)
+                                        )
+                                    }
                                 }
+
+                                Image(
+                                    painter = painterResource(id = R.drawable.img_ludo_logo),
+                                    contentDescription = "Ludo Logo",
+                                    modifier = Modifier
+                                        .size(44.dp)
+                                        .clip(RoundedCornerShape(12.dp))
+                                        .border(1.5.dp, Color.White.copy(alpha = 0.6f), RoundedCornerShape(12.dp))
+                                )
                             }
                         }
 
